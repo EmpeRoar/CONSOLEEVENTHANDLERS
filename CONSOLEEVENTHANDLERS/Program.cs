@@ -51,8 +51,21 @@ namespace CONSOLEEVENTHANDLERS
             stock.Price = 27.10M;
 
             stock.PriceChanged += stock_PriceChanged;
+            stock.PriceChanged += helloWorld;
+            stock.PriceChanged += invokeMe;
+
             stock.Price = 31.59M;
             Console.ReadLine();
+        }
+
+        private static void invokeMe(object sender, PriceChangedEventArgs e)
+        {
+            Console.WriteLine("This is invoked!");
+        }
+
+        private static void helloWorld(object sender, PriceChangedEventArgs e)
+        {
+            Console.WriteLine("Hello World has been invoked as well");
         }
 
         private static void stock_PriceChanged(object sender, PriceChangedEventArgs e)
